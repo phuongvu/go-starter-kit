@@ -15,7 +15,7 @@ var postCssLoader = [
 var plugins = [
     new webpack.NoErrorsPlugin(),
     new webpack.optimize.DedupePlugin(),
-    new ExtractTextPlugin('bundle.css'),
+    new ExtractTextPlugin('bundle.css')
 ];
 
 if (process.env.NODE_ENV === 'production') {
@@ -29,8 +29,8 @@ if (process.env.NODE_ENV === 'production') {
     })
   ]);
 
-  postCssLoader.splice(1, 1) // drop human readable names
-};
+  postCssLoader.splice(1, 1); // drop human readable names
+}
 
 var config  = {
   entry: {

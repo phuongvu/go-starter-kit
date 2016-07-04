@@ -28,7 +28,7 @@ app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output
 app.use(webpackHotMiddleware(compiler));
 app.use(proxy('http://localhost:' + port));
 
-port++
+port++;
 
 app.listen(port, function(error) {
   if (error) {

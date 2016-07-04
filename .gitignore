@@ -8,3 +8,5 @@
 
 .pid
 .DS_Store
+.idea
+Godeps/Readme
