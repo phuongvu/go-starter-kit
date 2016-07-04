@@ -1,4 +1,4 @@
-# go-starter-kit [![Join the chat at https://gitter.im/olebedev/go-starter-kit](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/olebedev/go-starter-kit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# go-starter-kit [![wercker status](https://app.wercker.com/status/cd5a782c425b1feb06844dcc701e528c/s/master "wercker status")](https://app.wercker.com/project/bykey/cd5a782c425b1feb06844dcc701e528c) [![Join the chat at https://gitter.im/olebedev/go-starter-kit](https://img.shields.io/gitter/room/nwjs/nw.js.svg?maxAge=2592000&style=plastic)](https://gitter.im/olebedev/go-starter-kit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 This project contains a quick starter kit for **Facebook React** Single Page Apps with **Golang** server side render and also with a set of useful features for rapid development of efficient applications.
 
@@ -13,11 +13,11 @@ This project contains a quick starter kit for **Facebook React** Single Page App
 * advanced cli via [cli](https://github.com/codegangsta/cli)
 * Makefile based project
 * one(!) terminal window process for development
-* routing via [react-router](https://github.com/rackt/react-router)
+* routing via [react-router](https://github.com/reactjs/react-router)
 * ES6 & JSX via [babel-loader](https://github.com/babel/babel-loader) with minimal runtime dependency footprint
-* [redux](http://rackt.org/redux/) as state container
+* [redux](https://rackt.org/redux/) as state container
 * [redux-devtools](https://github.com/gaearon/redux-devtools)
-* stylus css styles without global namespace via [css-loader](https://github.com/webpack/css-loader) & css-modules
+* css styles without global namespace via PostCSS, [css-loader](https://github.com/webpack/css-loader) & css-modules
 * separate css file to avoid FOUC
 * hot reloading via [react-transform](https://github.com/gaearon/babel-plugin-react-transform) & [HMR](http://webpack.github.io/docs/hot-module-replacement.html)
 * webpack bundle builder
@@ -25,12 +25,9 @@ This project contains a quick starter kit for **Facebook React** Single Page App
 
 ## Dependencies
 
-* [golang](http://golang.org/)
+* [golang](https://golang.org/)
 * [node.js](https://nodejs.org/) with [npm](https://www.npmjs.com/), only to build the application bundle at compile time
 * [GNU make](https://www.gnu.org/software/make/)
-* [fswatch](https://github.com/emcrisostomo/fswatch/)
-* [go-bindata](https://github.com/jteeuwen/go-bindata/)
-* [srlt](https://github.com/olebedev/srlt) - optional
 
 Note that probably not works at windows.
 
@@ -108,22 +105,13 @@ Install JavaScript dependencies:
 $ npm i
 ```
 
-There are two ways to install Golang dependencies:
+Install Golang dependencies via revision locking tool - [srlt](https://github.com/olebedev/srlt). Make sure that you have srlt installed, environment variable `GO15VENDOREXPERIMENT=1` and _Golang_ >= 1.5.0.
 
-1. Traditional `go get`. It is __not recommended__ because it will install packages into `$GOPATH` and the packages versions are will not be under control. This is OK for _Golang_ < 1.5.
+```
+$ srlt restore
+```
 
-  ```
-  $ go get ./server/.
-  ```
-
-2. Via revision locking tool - [srlt](https://github.com/olebedev/srlt). Make sure that you have srlt installed, environment variable `GO15VENDOREXPERIMENT=1` and _Golang_ >= 1.5.0.
-
-  ```
-  $ srlt restore
-  ```
 This command will install dependencies into `./vendor/` folder located in root.
-
-Then install `go-bindata` directly: `go install github.com/jteeuwen/go-bindata`
 
 ## Run development
 
@@ -137,7 +125,7 @@ that's it. Open [http://localhost:5001/](http://localhost:5001/)(if you use defa
 
 ## Build
 
-Install dependencies and type `NODE_ENV=production make build`. This rule is producing webpack build and regular golang build after that. Result you can find at `$GOPATH/bin`. Note that the binary will be named as the current project directory.
+Install dependencies and type `NODE_ENV=production make build`. This rule is producing webpack build and regular golang build after that. Result you can find at `$GOPATH/bin`. Note that the binary will be named **as the current project directory**.
 
 ## License
 MIT
